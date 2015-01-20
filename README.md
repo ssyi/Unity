@@ -3,6 +3,7 @@
 2015/01/21
 
 1. Add test TurnOnMultipleLeds, TurnOffAnyLed, AllOn
+2. Add test LedMemoryIsNotReadable
 
 2015/01/20
 
