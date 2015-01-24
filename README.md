@@ -5,6 +5,7 @@
 1. Add test for bounds
 2. Add Runtime Error call
 3. Refactoring(Add bound check function, set/clear image bit function)
+4. Add IsOn/IsOff function
 
 2015/01/21
 

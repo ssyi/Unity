@@ -1,4 +1,3 @@
-#include "stdbool.h"
 #include "LedDriver.h"
 #include "RuntimeError.h"
 
@@ -29,7 +28,7 @@ static void updateHardware(void)
 	*ledsAddress = ledsImage;
 }
 
-static bool IsLedOutOfBounds(int ledNumber)
+static BOOL IsLedOutOfBounds(int ledNumber)
 {
 	return (ledNumber < FIRST_LED) || (ledNumber > LAST_LED);
 }
@@ -73,3 +72,17 @@ void LedDriver_TurnAllOn(void)
 	ledsImage = ALL_LEDS_ON;
 	updateHardware();
 }
+
+BOOL LedDriver_IsOn(int ledNumber)
+{
+	if (IsLedOutOfBounds(ledNumber))
+		return FALSE;
+
+	return ledsImage & (convertLedNumberToBit(ledNumber));
+}
+
+BOOL LedDriver_IsOff(int ledNumber)
+{
+	return !LedDriver_IsOn(ledNumber); 
+}
+

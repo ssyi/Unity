@@ -103,3 +103,26 @@ IGNORE_TEST(LedDriver, OutOfBoundsToDo)
 {
 	/* TODO: 런타임 중에 어떻게 해야 하나?  */
 }
+
+TEST(LedDriver, IsOn)
+{
+	TEST_ASSERT_FALSE(LedDriver_IsOn(11));
+	LedDriver_TurnOn(11);
+	TEST_ASSERT_TRUE(LedDriver_IsOn(11));
+}
+
+TEST(LedDriver, OutOfBoundsLedsAreAlwaysOff)
+{
+	TEST_ASSERT_TRUE(LedDriver_IsOff(0));
+	TEST_ASSERT_TRUE(LedDriver_IsOff(17));
+	TEST_ASSERT_FALSE(LedDriver_IsOn(0));
+	TEST_ASSERT_FALSE(LedDriver_IsOn(17));
+}
+
+TEST(LedDriver, IsOff)
+{
+	TEST_ASSERT_TRUE(LedDriver_IsOff(12));
+	LedDriver_TurnOn(12);
+	TEST_ASSERT_FALSE(LedDriver_IsOff(12));
+}
+
