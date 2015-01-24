@@ -6,6 +6,7 @@
 2. Add Runtime Error call
 3. Refactoring(Add bound check function, set/clear image bit function)
 4. Add IsOn/IsOff function
+5. Add TurnAllOff function
 
 2015/01/21
 
