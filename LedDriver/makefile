@@ -27,6 +27,7 @@ SRC_FILES=\
   $(UNITY_ROOT)/src/unity.c \
   $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
   src/LedDriver.c \
+  test/RuntimeErrorStub.c \
   test/LedDriverTest.c \
   test/test_runners/LedDriverTestRunner.c \
   test/test_runners/AllTests.c

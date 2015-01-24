@@ -1,4 +1,5 @@
 #include "LedDriver.h"
+#include "RuntimeError.h"
 
 enum {ALL_LEDS_ON = -1, ALL_LEDS_OFF = 0};
 
@@ -29,7 +30,10 @@ static void updateHardware(void)
 void LedDriver_TurnOn(int ledNumber)
 {
 	if (ledNumber <= 0 || ledNumber > 16)
+	{
+		RUNTIME_ERROR("LED Driver: out-of-bounds LED", -1);
 		return;
+	}
 
 	ledsImage |= convertLedNumberToBit(ledNumber);
 	updateHardware();
@@ -38,7 +42,10 @@ void LedDriver_TurnOn(int ledNumber)
 void LedDriver_TurnOff(int ledNumber)
 {
 	if (ledNumber <= 0 || ledNumber > 16)
+	{
+		RUNTIME_ERROR("LED Driver: out-of-bounds LED", -1);
 		return;
+	}
 
 	ledsImage &= ~(convertLedNumberToBit(ledNumber));
 	updateHardware();

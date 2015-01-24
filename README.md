@@ -3,6 +3,7 @@
 2015/01/24
 
 1. Add test for bounds
+2. Add Runtime Error call
 
 2015/01/21
 
